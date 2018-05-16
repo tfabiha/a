@@ -43,7 +43,7 @@ public class ALHeap
 	for (Integer i: _heap)
 	    retVal += i + " ";
 	return retVal;
-    }//O(?)
+    }//O(n)
 
 
     /*****************************************************
@@ -85,7 +85,10 @@ Algo:
 		_heap.add(addVal);
 		return;
 	    }
-	int n;
+	
+	int n; //stores position of addVal at any given time
+
+	//puts addVal right after a meaningful value
 	if(_heap.get(_heap.size() - 1) == null)
 	    {
 		n = _heap.size() - 1;
@@ -98,6 +101,10 @@ Algo:
 		_heap.add(addVal);
 		n = _heap.size() - 1;
 	    }
+
+	//if addVal is greater than its parent,
+	// then parent and child swap positions
+	//repeats until the previous condition is false
 	while(_heap.get((n - 1) / 2) > _heap.get(n))
 	    {
 	        swap(n, (n-1) / 2);
@@ -120,12 +127,16 @@ Algo:
 	Integer retVal = _heap.get(0);
 	int i = 0;
 	int save = i;
+
+	//while the min element is not yet a leaf
 	while(minChildPos(i) != -1)
 	    {
+		//swap with smallest child
 		swap(i, minChildPos(i));
 		save = i;
 		i = minChildPos(i);
 	    }
+	
 	_heap.set(i, null);
 	return retVal;
     }//O(log(n))
@@ -141,18 +152,32 @@ Algo:
     {
 	int left = 2 * pos + 1;
 	int right = left + 1;
+
+	//if you are out of bounds of the tree or ur left does not exist
 	if(pos > _heap.size() || left > _heap.size() - 1)
 	    return -1;
+
+	//if your right does not exist
 	if(right > _heap.size() - 1 || _heap.get(right) ==  null)
 	    {
+		//if left does exist
 		if(_heap.get(left) != null)
 		    return left;
+
+		//no child
 		return -1;
 	    }
+
+	//if left does not exist
 	if(_heap.get(left) == null)
 	    return right;
+
+	//if the minimum of the left child and right child
+	//equals the left child
 	if (minOf(_heap.get(left), _heap.get(right)).equals(_heap.get(left)))
 	    return left;
+
+	//else the right child is the minimum
 	return right;
     }//O(1)
   
