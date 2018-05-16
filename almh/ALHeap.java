@@ -56,7 +56,7 @@ public class ALHeap
 	    if(i != null)
 		return false;
 	return true;
-    }//O(?)
+    }//O(n)
 
 
     /*****************************************************
@@ -67,7 +67,7 @@ public class ALHeap
     public Integer peekMin()
     {
 	return _heap.get(0);
-    }//O(?)
+    }//O(1)
 
 
     /*****************************************************
@@ -103,7 +103,7 @@ Algo:
 	        swap(n, (n-1) / 2);
 		n = (n - 1) / 2;
 	    }
-    }//O(?)
+    }//O(log(n))
 
 
     /*****************************************************
@@ -128,7 +128,7 @@ Algo:
 	    }
 	_heap.set(i, null);
 	return retVal;
-    }//O(?)
+    }//O(log(n))
 
 
     /*****************************************************
@@ -154,7 +154,7 @@ Algo:
 	if (minOf(_heap.get(left), _heap.get(right)).equals(_heap.get(left)))
 	    return left;
 	return right;
-    }//O(?)
+    }//O(1)
   
 
     //************ aux helper fxns ***************
