@@ -1,0 +1,11 @@
+public class RunMed
+{
+    private ALHeapMin bigVals;
+    private ALHeapMax lilVals;
+
+    public RunMed()
+    {
+	bigVals = new ALHeapMin();
+	lilVals = new ALHeapMax();
+    }
+}
