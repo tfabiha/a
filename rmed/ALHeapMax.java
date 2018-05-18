@@ -1,7 +1,6 @@
 /*****************************************************
- * class ALHeap
- * SKELETON
- * Implements a min heap using an ArrayList as underlying container
+ * class ALHeapMax
+ * Implements a max heap using an ArrayList as underlying container
  *****************************************************/
 
 import java.util.ArrayList;
@@ -55,6 +54,12 @@ public class ALHeapMax
    * Returns true if no meaningful elements in heap, false otherwise
    *****************************************************/
   public boolean isEmpty() { return _heap.isEmpty(); } //O(1)
+
+    /*****************************************************
+   * int size()
+   * Returns size of meaningful elements in heap
+   *****************************************************/
+  public int size() { return _heap.size(); } //O(1)
 
 
   /*****************************************************

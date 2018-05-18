@@ -1,6 +1,5 @@
 /*****************************************************
- * class ALHeap
- * SKELETON
+ * class ALHeapMin
  * Implements a min heap using an ArrayList as underlying container
  *****************************************************/
 
@@ -56,6 +55,12 @@ public class ALHeapMin
    *****************************************************/
   public boolean isEmpty() { return _heap.isEmpty(); } //O(1)
 
+
+    /*****************************************************
+   * int size()
+   * Returns size of meaningful elements in heap
+   *****************************************************/
+  public int size() { return _heap.size(); } //O(1)
 
   /*****************************************************
    * Integer peekMin()
